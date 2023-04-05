@@ -1,4 +1,5 @@
-package com.marcondes.courserestjava;
+package com.marcondes.courserestjava.section06.greeting;
+
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

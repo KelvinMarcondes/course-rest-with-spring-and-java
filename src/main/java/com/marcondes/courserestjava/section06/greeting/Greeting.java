@@ -1,4 +1,4 @@
-package com.marcondes.courserestjava;
+package com.marcondes.courserestjava.section06.greeting;
 
 public class Greeting {
     private final long id;
