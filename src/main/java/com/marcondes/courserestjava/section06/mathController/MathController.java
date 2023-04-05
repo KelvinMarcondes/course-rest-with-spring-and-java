@@ -1,5 +1,6 @@
 package com.marcondes.courserestjava.section06.mathController;
 
+import com.marcondes.courserestjava.section06.mathController.exceptions.UnsupportedMathOperationException;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,7 +15,7 @@ public class MathController {
     public Double sum(@PathVariable(value = "numberOne") String numberOne,
                       @PathVariable(value = "numberTwo") String numberTwo) throws  Exception {
         if (!isNumeric(numberOne) || !isNumeric(numberTwo)){
-            throw new Exception();
+            throw new UnsupportedMathOperationException("Please set a numeric value");
         }
         return convertDouble(numberOne) + convertDouble(numberTwo);
     }
