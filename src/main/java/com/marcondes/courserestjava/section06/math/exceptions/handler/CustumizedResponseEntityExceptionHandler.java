@@ -1,7 +1,7 @@
-package com.marcondes.courserestjava.section06.mathController.exceptions.handler;
+package com.marcondes.courserestjava.section06.math.exceptions.handler;
 
-import com.marcondes.courserestjava.section06.mathController.exceptions.ExceptionResponse;
-import com.marcondes.courserestjava.section06.mathController.exceptions.UnsupportedMathOperationException;
+import com.marcondes.courserestjava.section06.math.exceptions.ExceptionResponse;
+import com.marcondes.courserestjava.section06.math.exceptions.UnsupportedMathOperationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

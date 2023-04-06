@@ -1,4 +1,4 @@
-package com.marcondes.courserestjava.section06.mathController.exceptions;
+package com.marcondes.courserestjava.section06.math.exceptions;
 
 import java.io.Serializable;
 import java.util.Date;

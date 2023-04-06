@@ -1,4 +1,4 @@
-package com.marcondes.courserestjava.section06.mathController.exceptions;
+package com.marcondes.courserestjava.section06.math.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
