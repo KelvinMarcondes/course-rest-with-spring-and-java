@@ -1,4 +1,4 @@
-package com.marcondes.courserestjava;
+package com.marcondes.courserestjava.section07;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
