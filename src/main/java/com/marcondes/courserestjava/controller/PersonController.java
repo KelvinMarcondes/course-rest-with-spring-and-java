@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/person")
+@RequestMapping("/persons")
 public class PersonController {
 
     @Autowired
@@ -21,10 +21,41 @@ public class PersonController {
         return personServices.findById(id);
     }
 
+
+
+
+
+
+
+
+
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Person> findAll () {
         return personServices.findAll();
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE,
                  consumes = MediaType.APPLICATION_JSON_VALUE)

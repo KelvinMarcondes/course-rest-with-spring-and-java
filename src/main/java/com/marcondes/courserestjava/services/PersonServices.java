@@ -6,27 +6,18 @@ import com.marcondes.courserestjava.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Logger;
 
 @Service
 public class PersonServices {
-    private Logger logger = Logger.getLogger(PersonServices.class.getName());
+    private final Logger logger = Logger.getLogger(PersonServices.class.getName());
 
     @Autowired
     PersonRepository repository;
 
     public Person findById(Long id){
-
         logger.info("Finding one person!");
-
-        Person person = new Person();
-        person.setFirstName("Kelvin");
-        person.setLastName("Marcondes");
-        person.setAddress("Rio Grande da Serra - SP");
-        person.setGender("Male");
         return repository.findById(id).orElseThrow(()-> new ResourceNotFoundException("No records found for this Id."));
     }
 
