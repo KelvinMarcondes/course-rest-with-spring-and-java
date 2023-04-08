@@ -1,4 +1,4 @@
-package com.marcondes.courserestjava.section07.exceptions;
+package com.marcondes.courserestjava.exceptions;
 
 import java.io.Serializable;
 import java.util.Date;

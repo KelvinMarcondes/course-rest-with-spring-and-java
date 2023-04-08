@@ -1,13 +1,27 @@
-package com.marcondes.courserestjava.section07.model;
+package com.marcondes.courserestjava.model;
+
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 
+@Entity
+@Table(name = "person")
 public class Person implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String fisrtName;
+
+    @Column(name = "first_name", nullable = false)
+    private String firstName;
+
+    @Column(name = "last_Name")
     private String lastName;
-    private String adress;
+
+    @Column
+    private String address;
+
+    @Column
     private String gender;
 
     public Person() {
@@ -21,12 +35,12 @@ public class Person implements Serializable {
         this.id = id;
     }
 
-    public String getFisrtName() {
-        return fisrtName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFisrtName(String fisrtName) {
-        this.fisrtName = fisrtName;
+    public void setFirstName(String fisrtName) {
+        this.firstName = fisrtName;
     }
 
     public String getLastName() {
@@ -37,12 +51,12 @@ public class Person implements Serializable {
         this.lastName = lastName;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getGender() {
