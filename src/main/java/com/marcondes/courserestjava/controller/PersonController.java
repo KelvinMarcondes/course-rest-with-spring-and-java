@@ -11,67 +11,36 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/persons")
-public class PersonController {
+public class PersonController    {
 
     @Autowired
-    private PersonServices personServices;
+    private PersonServices service;
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Person findById (@PathVariable (value = "id") Long id){
-        return personServices.findById(id);
+        return service.findById(id);
     }
-
-
-
-
-
-
-
-
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Person> findAll () {
-        return personServices.findAll();
+        return service.findAll();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE,
                  consumes = MediaType.APPLICATION_JSON_VALUE)
     public Person create(@RequestBody Person person){
-        return personServices.create(person);
+        return service.create(person);
     }
 
     @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE,
                 consumes = MediaType.APPLICATION_JSON_VALUE)
     public Person update(@RequestBody Person person){
-        return personServices.update(person);
+        return service.update(person);
     }
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<?> delete (@PathVariable (value = "id") Long id){
-        personServices.delete(id);
+        service.delete(id);
         return ResponseEntity.noContent().build();
     }
 }

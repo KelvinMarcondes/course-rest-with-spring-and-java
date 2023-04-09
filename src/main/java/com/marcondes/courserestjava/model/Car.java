@@ -1,17 +1,17 @@
 package com.marcondes.courserestjava.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.io.Serializable;
 
 
 @Data
 @Entity @Table(name = "car")
-public class Car {
+public class Car implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
