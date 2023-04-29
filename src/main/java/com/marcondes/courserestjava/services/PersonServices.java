@@ -6,7 +6,6 @@ import com.marcondes.courserestjava.exceptions.ResourceNotFoundException;
 import com.marcondes.courserestjava.mapper.DozerMapper;
 import com.marcondes.courserestjava.model.Person;
 import com.marcondes.courserestjava.repositories.PersonRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,10 +14,13 @@ import java.util.logging.Logger;
 @Service
 public class PersonServices {
 	
-	private Logger logger = Logger.getLogger(PersonServices.class.getName());
+	private final Logger logger = Logger.getLogger(PersonServices.class.getName());
 	
-	@Autowired
-	PersonRepository repository;
+	final PersonRepository repository;
+
+	public PersonServices(PersonRepository repository) {
+		this.repository = repository;
+	}
 
 	public List<PersonVO> findAll() {
 
@@ -40,8 +42,8 @@ public class PersonServices {
 
 		logger.info("Creating one person!");
 		var entity = DozerMapper.parseObject(person, Person.class);
-		var vo =  DozerMapper.parseObject(repository.save(entity), PersonVO.class);
-		return vo;
+		return DozerMapper.parseObject(repository.save(entity), PersonVO.class);
+
 	}
 	
 	public PersonVO update(PersonVO person) {
@@ -56,8 +58,8 @@ public class PersonServices {
 		entity.setAddress(person.getAddress());
 		entity.setGender(person.getGender());
 		
-		var vo =  DozerMapper.parseObject(repository.save(entity), PersonVO.class);
-		return vo;
+		return DozerMapper.parseObject(repository.save(entity), PersonVO.class);
+
 	}
 	
 	public void delete(Long id) {

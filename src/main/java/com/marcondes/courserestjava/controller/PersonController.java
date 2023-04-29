@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.marcondes.courserestjava.data.vo.v1.PersonVO;
 import com.marcondes.courserestjava.services.PersonServices;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,9 +20,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/person")
 public class PersonController {
 	
-	@Autowired
-	private PersonServices service;
-	
+	private final PersonServices service;
+
+	public PersonController(PersonServices service) {
+		this.service = service;
+	}
+
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<PersonVO> findAll() {
 		return service.findAll();
